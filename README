@@ -25,6 +25,11 @@ Spreadsheet was developed to demonstrate the use of streamulus. There are curren
 * Changing the expression assigned to a cell will work, but it will leak memory. This is because Streamulus's unsubscribe utility is only partially implemented at the moment: https://github.com/iritkatriel/streamulus/issues/5
 * Note that in the code above, we needed to write "b()" in the expression assigned to a, rather than just "b". This is unfortunate, and with some proto-trickery can be fixed. 
 
+See also:
 
+Blog post at http://streamulus.blogspot.co.uk/2012/08/spreadsheet-programming-in-c.html
 
+Building:
+
+spreadsheet is a header-only library. It uses boost and streamulus. So put these three libraries in your include path. That's all.
 

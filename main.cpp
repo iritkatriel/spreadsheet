@@ -17,20 +17,18 @@ int main (int argc, const char * argv[])
 
     Spreadsheet sheet;
 
-    Cell<double> a = sheet.NewCell<double>("a");
-    Cell<double> b = sheet.NewCell<double>("b");
-    Cell<double> c = sheet.NewCell<double>("c");
-    Cell<double> d = sheet.NewCell<double>("d");
-    Cell<double> e = sheet.NewCell<double>("e");
-    Cell<double> f = sheet.NewCell<double>("f");
+    Cell<double> a = sheet.NewCell<double>();
+    Cell<double> b = sheet.NewCell<double>();
+    Cell<double> c = sheet.NewCell<double>();
+    Cell<double> d = sheet.NewCell<double>();
+    Cell<double> e = sheet.NewCell<double>();
+    Cell<double> f = sheet.NewCell<double>();
     
     c.Set(SQRT(a()*a() + b()*b()));
     a.Set(3.0);
     b.Set(4.0);
     d.Set(c()+b());
     e.Set(d()+c());
-    a.Set( SQRT(2 * b()) );
-    b.Set(18.3);
     
     std::cout << " a=" << a.Value() 
               << " b=" << b.Value() 
