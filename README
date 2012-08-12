@@ -22,7 +22,6 @@ See main.cpp for a complete program with a simple usage example.
 Spreadsheet was developed to demonstrate the use of streamulus. There are currently a few limitations, which will be removed if there is interest in this library for its own sake:
 
 * Cyclic dependencies are not detected. You will be rewarded with the infinite loop you deserve. 
-* Changing the expression assigned to a cell will work, but it will leak memory. This is because Streamulus's unsubscribe utility is only partially implemented at the moment: https://github.com/iritkatriel/streamulus/issues/5
 * Note that in the code above, we needed to write "b()" in the expression assigned to a, rather than just "b". This is unfortunate, and with some proto-trickery can be fixed. 
 
 See also:
