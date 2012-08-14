@@ -56,10 +56,13 @@ namespace spreadsheet {
             using streamulus::Streamify;
             
             if (mSubscription)
+            {
                 mStreamulusEngine->UnSubscribe(*mSubscription);
+                mSubscription = boost::none;
+            }
             
             SetCellValue set_cell_value(this);
-            mSubscription.reset(mStreamulusEngine->Subscribe(Streamify(set_cell_value)(expr))); 
+            mSubscription = mStreamulusEngine->Subscribe(Streamify(set_cell_value)(expr)); 
         }
 
     private:
