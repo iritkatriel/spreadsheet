@@ -18,17 +18,17 @@ namespace spreadsheet {
     public:
         
         typedef boost::shared_ptr<streamulus::StropStreamProducer<T> > ptr_type;
-        typedef const boost::proto::literal<ptr_type> type;    
-        typedef type expr_type;
+        typedef typename streamulus::InputStream<T>::type expr_type;
+        typedef expr_type type;
 
         Cell()
-            : mOutStream(boost::make_shared<streamulus::DataSource<T> >("tmp", false))
+            : mOutStream(streamulus::NewInputStream<T>("unnamed", false))
         {
             SetEngine(NULL, "");
         }
         
         Cell(streamulus::Streamulus* streamulus_engine, const std::string& name)
-            : mOutStream(boost::make_shared<streamulus::DataSource<T> >("tmp", false))
+            : mOutStream(streamulus::NewInputStream<T>(name.c_str(), false))
         {
             SetEngine(streamulus_engine, name);
         }
@@ -41,7 +41,7 @@ namespace spreadsheet {
                 
         expr_type operator()() const
         {
-            return boost::proto::lit(mOutStream);
+            return mOutStream;
         }
                 
         T Value()
@@ -57,7 +57,7 @@ namespace spreadsheet {
             
             if (mSubscription)
             {
-                mStreamulusEngine->UnSubscribe(*mSubscription);
+                mStreamulusEngine->UnSubscribe<T>(*mSubscription);
                 mSubscription = boost::none;
             }
             
@@ -108,8 +108,8 @@ namespace spreadsheet {
 
         streamulus::Streamulus* mStreamulusEngine; // No ownership. Do not delete.
         std::string mName;
-        boost::optional<expr_type> mSubscription;
-        boost::shared_ptr<streamulus::DataSource<T> > mOutStream;
+        boost::optional<typename streamulus::Subscription<T>::type> mSubscription;
+        expr_type mOutStream;
         boost::optional<T> mValue;
     };
     

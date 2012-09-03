@@ -37,6 +37,12 @@ int main (int argc, const char * argv[])
               << " e=" << e.Value() 
               << std::endl;
     
+    c.Set(2*(a()+b()));
+    c.Set(4*(a()+b()));
+    c.Set(5*(a()+b()));
+    c.Set(6*(a()+b()));
+    c.Set(7*(a()+b()));
+    c.Set(8*(a()+b()));
     c.Set(a());
 
     std::cout << " a=" << a.Value() 
@@ -46,6 +52,20 @@ int main (int argc, const char * argv[])
               << " e=" << e.Value() 
               << std::endl;
 
+    c.Set(2*(a()+b()));
+    c.Set(4*(a()+b()));
+    c.Set(5*(a()+b()));
+    c.Set(6*(a()+b()));
+    c.Set(7*(a()+b()));
+    c.Set(8*(a()+b()));
+    c.Set(a()+1);
+    
+    std::cout << " a=" << a.Value() 
+    << " b=" << b.Value() 
+    << " c=" << c.Value() 
+    << " d=" << d.Value() 
+    << " e=" << e.Value() 
+    << std::endl;
     
     std::cout << "Goodbye!\n";
     
