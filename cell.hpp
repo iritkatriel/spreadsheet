@@ -18,7 +18,7 @@ namespace spreadsheet {
     public:
         
         typedef boost::shared_ptr<streamulus::StropStreamProducer<T> > ptr_type;
-        typedef typename streamulus::InputStream<T>::type expr_type;
+        typedef streamulus::InputStream<T> expr_type;
         typedef expr_type type;
 
         Cell()
