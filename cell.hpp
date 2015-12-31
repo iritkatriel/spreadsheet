@@ -17,14 +17,12 @@ namespace spreadsheet {
     {
     public:
         
-        typedef boost::shared_ptr<streamulus::StropStreamProducer<T> > ptr_type;
-        typedef streamulus::InputStream<T> expr_type;
-        typedef expr_type type;
+        using expr_type = streamulus::InputStream<T>;
 
         Cell()
             : mOutStream(streamulus::NewInputStream<T>("unnamed", false))
         {
-            SetEngine(NULL, "");
+            SetEngine(nullptr, "");
         }
         
         Cell(streamulus::Streamulus* streamulus_engine, const std::string& name)
